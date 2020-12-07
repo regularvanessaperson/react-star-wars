@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+
 const Home = () => {
     const [data, setData] = useState([])
 
@@ -13,17 +14,23 @@ const Home = () => {
         })
     }, []);
 
+    
 
+        
     const starship =()=> {
         return data.map(ship=>(
-            <div key={ship.name}>{ship.name}</div>  
+            <div key={ship.name} className="col s12 m6">
+                 <button className="btn waves-effect waves-light" type="submit" name="action">{ship.name}</button>
+                
+                </div>  
           ))
     }
     
     return <div>
         <header>Starwars Starship</header>
-        
+        <div className="row">
         {starship()}
+        </div>
     </div>
 
 
