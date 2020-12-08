@@ -22,11 +22,11 @@ const StarshipList = () => {
         if(loading){
             return <Loading/>
         }else{
-            return data.map(ship => (
+            return data.map((ship, index) => (
                 <div className="col s12 m3">
                     <div className="card">
                             <div className="card-content teal">
-                            <Link to={{pathname: "/starshipPage", state: ship, loading: false}} key={ship.name} className="white-text flow-text truncate"> {ship.name} </Link>
+                            <Link to={{pathname: "/starshipPage", state: ship, loading: false}} key={index} className="white-text flow-text truncate"> {ship.name} </Link>
                             </div>
                     </div>
                 </div>
