@@ -8,7 +8,14 @@ import Loading from './common/Loading'
 const StarshipPage = (state) => {
     const [loading, setLoading] = useState(true)
 
+    useEffect(()=>{
+        setLoading(false)
+      },[])
+
     const starship = () => {
+    if(loading){
+            return <Loading/>
+        }else{
             const ship = state.location.state
             console.log({ship})
             return (
@@ -16,10 +23,10 @@ const StarshipPage = (state) => {
                 <div className="col s12 m6">
                   <div className="card teal darken-1">
                     <div className="card-content  white-text ">
-                      <span className="card-title ">NAME: {ship.name}</span>
+                      <span key={ship.name}className="card-title ">NAME: {ship.name}</span>
                       <ul>
-                          <li key={ship.name}> MODEL: {ship.model}</li>
-                          <li key={ship.name}> STARSHIP CLASS: {ship.starship_class}</li>
+                          <li key={ship.model}> MODEL: {ship.model}</li>
+                          <li key={ship.starship_class}> STARSHIP CLASS: {ship.starship_class}</li>
                       </ul>
                     </div>
                     <div className="card-action">
@@ -28,16 +35,16 @@ const StarshipPage = (state) => {
                   </div>
                 </div>
               </div>
-            )  
+            )}    
    }
 
 
 
 
-    return( <div>
-         {starship()}
+    return <div>
+        {starship()}
     </div>
-)
+
 
 }
 

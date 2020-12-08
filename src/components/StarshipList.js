@@ -26,7 +26,7 @@ const StarshipList = () => {
                 <div className="col s12 m3">
                     <div className="card">
                             <div className="card-content teal">
-                            <Link to={{pathname: "/starshipPage", state: ship}} key={ship.name} className="white-text flow-text truncate"> {ship.name} </Link>
+                            <Link to={{pathname: "/starshipPage", state: ship, loading: false}} key={ship.name} className="white-text flow-text truncate"> {ship.name} </Link>
                             </div>
                     </div>
                 </div>
